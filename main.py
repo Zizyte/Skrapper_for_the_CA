@@ -1,10 +1,19 @@
 
 import requests
 import bs4
+import json
+import os
 
+# Load config
+with open("config.json", "r") as config_file:
+    config = json.load(config_file)
+delay_seconds = config.get("delay_seconds", 3)
 
 base_url = "https://xkcd.com/"
 url = "https://xkcd.com/1"
+
+# Checking if the comics folder exists
+os.makedirs("comics", exist_ok = True)
 
 while "#" not in url:
 
