@@ -4,6 +4,15 @@ import bs4
 import json
 import os
 import time
+import logging
+
+# Setup logging file for the ERROR messages
+logging.basicConfig(
+    filename= "main.log",
+    filemode = "a",
+    format = "%(asctime)s - %(levelname)s - %(message)s",
+    level = logging.ERROR
+)
 
 # Load config
 with open("config.json", "r") as config_file:
