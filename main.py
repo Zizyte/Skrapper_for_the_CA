@@ -23,7 +23,7 @@ base_url = "https://xkcd.com/"
 url = "https://xkcd.com/1"
 
 # Checking if the comics folder exists
-os.makedirs("comics", exist_ok = True)
+os.makedirs("comics", exist_ok=True)
 
 while "#" not in url:
 
@@ -44,7 +44,7 @@ while "#" not in url:
     # PART 3 - Download the Comic
     response = requests.get(image_source)
 
-    with open("Comics.py/" + image_name, "wb") as file:
+    with open(os.path.join("comics", image_name), "wb") as file:
         file.write(response.content)
 
     # PART 4 Find the next page
