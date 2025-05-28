@@ -3,6 +3,7 @@ import requests
 import bs4
 import json
 import os
+import time
 
 # Load config
 with open("config.json", "r") as config_file:
@@ -41,4 +42,6 @@ while "#" not in url:
     next_anchor = soup.select(".comicNav a[rel=next]")[0]
     next_href = next_anchor["href"]
     url = base_url + str(next_href)
-    print(url)
+
+    # Waiting time before accessing the next page
+    time.sleep(delay_seconds)
